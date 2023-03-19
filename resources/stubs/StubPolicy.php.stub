@@ -20,7 +20,7 @@ class {CamelCase}Policy
         return true;
     }
 
-    public function view(User $user, {CamelCase} {SnakeCase})
+    public function view(User $user, {CamelCase} ${SnakeCase})
     {
         return true;
     }
@@ -30,12 +30,12 @@ class {CamelCase}Policy
         return true;
     }
 
-    public function update(User $user, Category {SnakeCase})
+    public function update(User $user, Category ${SnakeCase})
     {
         return true;
     }
 
-    public function delete(User $user, Category {SnakeCase})
+    public function delete(User $user, Category ${SnakeCase})
     {
         return true;
     }

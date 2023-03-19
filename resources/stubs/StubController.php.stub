@@ -11,7 +11,7 @@ class {CamelCase}Controller extends Controller
 {
     public function __construct()
     {
-        $this->authorizeResource({CamelCase}::class, '{SnakeCase}');
+        $this->authorizeResource({CamelCase}::class);
     }
 
     public function index()
@@ -19,7 +19,7 @@ class {CamelCase}Controller extends Controller
         ${PluralName} = QueryBuilder::for({CamelCase}::class)
             ->paginate();
 
-        return JsonResource::collection($categories);
+        return JsonResource::collection(${PluralName});
     }
 
     public function show({CamelCase} ${SnakeCase})
@@ -40,15 +40,15 @@ class {CamelCase}Controller extends Controller
     {
         $data = $request->validate([]);
 
-        ${SnackCase}->update($data);
+        ${SnakeCase}->update($data);
 
-        return new JsonResource(${SnackCase});
+        return new JsonResource(${SnakeCase});
     }
 
-    public function destroy({CamelCase} ${SnackCase})
+    public function destroy({CamelCase} ${SnakeCase})
     {
-        ${SnackCase}->delete();
+        ${SnakeCase}->delete();
 
-        return new JsonResource(${SnackCase});
+        return new JsonResource(${SnakeCase});
     }
 }
