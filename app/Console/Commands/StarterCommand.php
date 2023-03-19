@@ -34,6 +34,20 @@ class StarterCommand extends Command
         // Create Migration & Model
         Artisan::call("make:model -m $CamelCase");
 
+        // Add $fillable array to model file
+        $modelFile = app_path("Models/{$CamelCase}.php");
+        $string = file_get_contents($modelFile);
+
+        if (preg_match('/use HasFactory;/', $string, $matches, PREG_OFFSET_CAPTURE)) {
+            $pos = $matches[0][1];
+
+            // Prepend a line before the line
+            $newString = substr_replace($string, 'protected $fillable = [];' . PHP_EOL, $pos, 0);
+
+            // Write the updated content back to the file
+            file_put_contents($modelFile, $newString);
+        }
+
         // Create CRUD Controller
         $string = file_get_contents(resource_path('stubs/StubController.php.stub'));
         // Replace {CamelCase}
