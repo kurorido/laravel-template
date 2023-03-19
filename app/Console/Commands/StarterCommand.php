@@ -59,7 +59,7 @@ class StarterCommand extends Command
 
         $routes = file_get_contents($routesFile);
 
-        if (preg_match('/^use [A-Za-z\\\\]+;/', $routes, $matches, PREG_OFFSET_CAPTURE)) {
+        if (preg_match('/use [A-Za-z\\\\]+;/', $routes, $matches, PREG_OFFSET_CAPTURE)) {
             $pos = $matches[0][1];
 
             // Prepend a line before the line
